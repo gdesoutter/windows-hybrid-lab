@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "ms-vscode.powershell",
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    "redhat.vscode-yaml",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "ms-azuretools.vscode-bicep",
+    "hashicorp.terraform"
+  ]
+}

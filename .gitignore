@@ -1,0 +1,31 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# VS Code
+.vscode/*.log
+.vscode/*workspaceStorage/
+.history/
+
+# Node
+node_modules/
+
+# PowerShell
+*.ps1xml
+*.psc1
+
+# Archives / outputs
+*.zip
+*.tar
+*.gz
+*.log
+
+# Secrets (ex: exports de certifs)
+*.pfx
+*.p12
+*.key
+*.cer
+*.crt
+*.pem
+*.secret
+secrets/*

@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  lint-and-qa:
+    runs-on: windows-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "PowerShell: Install PSScriptAnalyzer"
+        shell: pwsh
+        run: Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
+
+      - name: "PowerShell: Run PSScriptAnalyzer"
+        shell: pwsh
+        run: |
+          Invoke-ScriptAnalyzer -Path ./src,./runbooks -Recurse `
+            -Settings ./PSScriptAnalyzerSettings.psd1 -ReportSummary
+
+      - name: "Markdown: Lint"
+        uses: DavidAnson/markdownlint-cli2-action@v17
+        with:
+          globs: |
+            **/*.md
+          config: .markdownlint.json

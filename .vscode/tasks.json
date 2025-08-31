@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Lint: PowerShell (PSScriptAnalyzer)",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "Install-Module PSScriptAnalyzer -Scope CurrentUser -Force; Invoke-ScriptAnalyzer -Path ./src,./runbooks -Recurse -Settings ./PSScriptAnalyzerSettings.psd1 -ReportSummary"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint: Markdown",
+      "type": "shell",
+      "command": "npx",
+      "args": [
+        "markdownlint-cli",
+        "**/*.md",
+        "--config",
+        ".markdownlint.json"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

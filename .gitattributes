@@ -1,0 +1,17 @@
+* text=auto eol=lf
+
+# Garder LF pour ces fichiers
+*.ps1  text eol=lf
+*.psm1 text eol=lf
+*.psd1 text eol=lf
+*.ps1xml text eol=lf
+*.md   text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+
+# Binaires
+*.png binary
+*.jpg binary
+*.zip binary
+*.pfx binary
