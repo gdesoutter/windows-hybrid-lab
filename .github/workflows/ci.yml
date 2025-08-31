@@ -20,10 +20,7 @@ jobs:
 
       - name: "PowerShell: Run PSScriptAnalyzer"
         shell: pwsh
-        run: |
-          Invoke-ScriptAnalyzer -Path ./src,./runbooks -Recurse `
-            -Settings ./PSScriptAnalyzerSettings.psd1 -ReportSummary
-
+        run: pwsh -NoProfile -Command "$paths=@('./src','./runbooks')|?{Test-Path $_}; if($paths.Count -eq 0){'No paths'; exit 0}; Invoke-ScriptAnalyzer -Path $paths -Recurse -Settings ./PSScriptAnalyzerSettings.psd1 -ReportSummary"
       - name: "Markdown: Lint"
         uses: DavidAnson/markdownlint-cli2-action@v17
         with:
